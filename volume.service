@@ -1,0 +1,22 @@
+[Unit]
+Description=Radio Buttons Py Module
+Wants=dynamicswap.service
+
+[Service]
+ExecStart=/usr/bin/python /home/volumio/rpi-rotary-encoder-python/volume.py
+Restart=always
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=volume
+
+# disallow writing to /usr, /bin, /sbin, ...
+ProtectSystem=yes
+
+# more paranoid security settings
+NoNewPrivileges=yes
+
+User=volumio
+Group=volumio
+
+[Install]
+WantedBy=volumio.service
