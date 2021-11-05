@@ -12,7 +12,7 @@ class Encoder:
         self.state = '00'
         self.direction = None
         self.callback = callback
-        # hm, seems to only work with UP 🤷
+        # hm, seems to only work with UP
         GPIO.setup(self.leftPin, GPIO.IN, pull_up_down=GPIO.PUD_UP)
         GPIO.setup(self.rightPin, GPIO.IN, pull_up_down=GPIO.PUD_UP)
         GPIO.add_event_detect(self.leftPin, GPIO.BOTH, callback=self.transitionOccurred)  
