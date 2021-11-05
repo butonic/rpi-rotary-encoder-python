@@ -1,6 +1,5 @@
+#!/usr/bin/python
 # This is a volume script for volumio
-# It use mpc instead of volumio to faster apply the actions
-# make sure mpd support is enabled in volumio!
 
 import subprocess
 import time
@@ -16,12 +15,12 @@ togglePin = 22
 # callback functions
 def valueChanged(value, direction):
     if direction == "L":
-        subprocess.Popen(['mpc', 'volume', '-2'])
+        subprocess.Popen(['volumio', 'volume', 'minus'])
     else:
-        subprocess.Popen(['mpc', 'volume', '+2'])
+        subprocess.Popen(['volumio', 'volume', 'plus'])
 
 def togglePlay(e):
-    subprocess.Popen(['mpc', 'toggle'])
+    subprocess.Popen(['volumio', 'toggle'])
 
 # use bcm pin numbering
 GPIO.setmode(GPIO.BCM)
